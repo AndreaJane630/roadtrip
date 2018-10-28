@@ -1,0 +1,202 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<title>Road Trip</title>
+		<meta charset="utf-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel="stylesheet"> 
+<style>
+	body {
+		font-family: Lato, sans-serif;
+		background-image: url(circles-and-roundabouts.png);  
+		/*background-image: url(sayagata-400px.png); */		
+	}
+	#wrapper {
+		max-width: 960px;
+		margin: 60px auto 0 auto;
+		text-align: center;
+		box-sizing: border-box;
+	}
+	h1 {
+		text-align: center;
+		color: darkblue;
+		font-size: 2.5rem;
+		margin-bottom: 0;
+	}
+	#passenger_storage {
+		margin-bottom: 30px;
+	}
+	meter{
+		width:400px;
+		margin-bottom: 30px;
+	}
+	meter::-webkit-meter-optimum-value {
+		background: cornflowerblue; /* #86CC00;  Green */
+		border-radius: 3px;
+	}
+	meter::-webkit-meter-bar {
+		background: #bbb;
+		box-shadow: 0 2px 3px rgba(0,0,0,0.2) inset;
+		border-radius: 3px;
+	}
+	/* #passenger_storage {
+		display: flex;
+	} */
+	figure {
+		display: inline-block;
+		margin: 10px;
+	}
+	figcaption {
+		margin-top: 10px;
+		font-weight: 700;
+	}
+	
+	ul {
+		list-style: none;
+	}
+	li {
+		margin-bottom: 5px;
+		font-size: 1.1rem;
+		text-align: right;
+	}
+	li:first-child {
+		font-weight: 700;
+		font-size: 1.25rem;
+	}
+	.carstat {
+		text-align: left;
+	}
+	/*#selectcar label { */
+	
+    label {
+		margin-right: 10px;
+		margin-bottom: 20px;
+		font-size: 1.5rem;
+		color: darkblue;
+	}
+	select {
+		color: darkblue;
+		margin-bottom: 20px;
+		width: 200px;
+	    border-radius: 20px;
+        border: none;
+		outline: none;
+	    font-size: 1.25rem;
+	    padding: 7px;
+		padding-left: 10px;
+        width: 175px;
+		background-color: gainsboro; 
+		font-weight: 700;
+	}
+	
+	input {
+		display: inline-block;
+		margin-right: 10px;
+		padding: 8px;
+		border-radius: 5px;
+		background-color: gainsboro; 
+		font-size: 1.25rem;
+		outline: none;
+		color: darkblue;
+		font-weight: 700;
+		letter-spacing: 1px;
+		
+	}
+	#amount {
+		width: 70px;
+		outline: none;
+	}
+	.imgstyle {
+		border: 2px solid darkblue;
+		margin-right: 10px;
+		border-radius: 5px;
+	}
+		
+	#dashboard {
+		display: none;
+		width: 400px;
+		margin: auto auto;
+		padding: 10px;
+		background-color: #eaebeb; /*whitesmoke; */
+		border-radius: 20px; 
+		box-shadow: 0 0 15px 10px gainsboro; 
+	}
+	#dashheader {
+		display: none;
+		margin-bottom: 10px;
+		
+	}
+	@media (max-width: 700px) {
+		#remove_passenger {
+			margin-top: 20px;
+		}	
+	}
+	@media (max-width: 500px) {
+		#dashboard {
+			width: 300px;
+		}
+	}
+	@media (max-width: 360px) {
+		#add_passenger {
+			margin-top: 20px;
+		}	
+	}
+</style>
+
+	</head>
+	<body>
+		<div id="wrapper">
+		<h1>Road Trip</h1>
+		<meter id="trip" min="0" max="3000" value="0"></meter>
+
+		<div id="passenger_storage"></div>
+		<div id="selectcar">
+	<!--		<label for="carmodel">Select Car</label> -->
+			<select id="carmodel" name="carmodel">
+				<option value="choose">Select Car</option>
+				<option value="Corolla">Toyota Corolla</option>
+				<option value="Prius">Toyota Prius</option>
+				<option value="Altima">Nissan Altima</option>
+			</select>
+		</div>
+		 
+	
+		<input type="button" id="drive" value="Drive" />
+
+		<input type="number" id="amount" value="1" min="1" />
+		<input type="button" id="refuel" value="Refuel" />
+
+		<input type="button" id="add_passenger" value="+ Passenger" />
+		
+		<!--<label for="selectpid">Disembark:</label> -->
+		<select id="remove_passenger" name="remove_passenger">
+				<option value="remove_passenger">&minus; Passenger</option>
+		</select>
+	
+		<h1 id="dashheader">Dashboard</h1>
+		<div id="dashboard">
+		
+		<ul>
+			<li>Your car:</li>
+			<li>MPG:</li>
+			<li>Tank:</li>
+			<li>Capacity:</li>
+			<li>Odometer:</li>
+			<li>Passengers:</li>
+			<li>Available Seats:</li>
+		</ul>
+		
+		<ul>
+			<li class="carstat"></li>
+			<li class="carstat"></li>
+			<li class="carstat"></li>
+			<li class="carstat"></li>
+			<li class="carstat"></li>
+			<li class="carstat"></li>
+			<li class="carstat"></li>
+		</ul>
+	</div>
+		
+		<script src="main.js"></script>
+	</body>
+</html>
